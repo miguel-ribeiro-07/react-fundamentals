@@ -12,9 +12,24 @@
     // 🐨 Please re-implement the regular document.createElement code above
     // with these React API calls
     // 💰 The example in the markdown file should be a good hint for you.
-    const elementProps = {className: 'container', children: 'Hello world! do Miguel'}
+    /*const elementProps = {className: 'container', children: 'Hello world! do Miguel'}
     const elementType = 'div'
     const reactElement = React.createElement(elementType, elementProps)
+    ReactDOM.render(reactElement, rootElement)*/
+
+    /*const reactElement = React.createElement('div', {className: 'container', children: "Hello World! do Miguel"})
+    ReactDOM.render(reactElement, rootElement)*/
+    //Propriedade children pode conter outros elementos react
+    //Parâmetros do método React.createElement()
+    //1º: tipo de elemento que será criado
+    //2º: objeto representando as props do objeto  
+    //3º: o conteúdo interno(textContent) do elemento (opcional)
+    const reactElement = React.createElement('div', {className: 'container', children:[
+        React.createElement('span', null, 'Hello'),
+        React.createElement('span',{children: 'World'})
+        ]
+    })
     ReactDOM.render(reactElement, rootElement)
+
   </script>
 </body>

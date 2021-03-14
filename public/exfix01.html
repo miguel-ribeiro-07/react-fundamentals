@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        p.textcenter{
+            text-align: center;
+            background-color: aqua;
+        }
+        p.textdir{
+            text-align: right;
+            background-color: limegreen;
+        }
+    </style>
+</head>
+<body>
+    <div id="root"></div>
+    <script src="https://unpkg.com/react@17.0.0/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@17.0.0/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone@7.12.4/babel.js"></script>
+    <script type="text/babel">
+    const Container = props => <div className="container" {...props}></div>
+    function Soma({n1,n2, ...props}){
+        return <div {...props}>{n1+n2}</div>
+    }
+    const ParagCenter = props => <p className="textcenter" {...props}></p>
+    const ParagDir = props => <p className="textdir" {...props}></p>
+    const container = (
+        <Container id='main'>Componente
+            <ParagCenter id='center'>Centro</ParagCenter>
+            <ParagDir id='dir'>Direita</ParagDir>
+            <Soma id="soma1" n1={50} n2={30}/>
+        </Container>
+    )
+    ReactDOM.render(container, document.getElementById('root'))
+    </script>
+</body>
+</html>

@@ -17,6 +17,13 @@
             </div>
         )
     }
+        function Message2({subject, greeting}){
+        return(
+            <React.Fragment>
+                {greeting} {subject}
+            </React.Fragment>
+        )
+    }
     // 🐨 use that function in place of the divs below with:
     // 💰 {message({children: 'Hello World'})} {message({children: 'Goodbye World'})}
     /*const element = (
@@ -40,6 +47,7 @@
     const element = (
       <div className="container">
         <Message subject='World' greeting='Hello'/>
+        <Message2 subject='Olá' greeting='pessoas!'/>
       </div>
     )
     // 💯 This is only the first step to making actual React components. The rest is in the extra credit!

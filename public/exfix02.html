@@ -10,6 +10,38 @@
     <script src="https://unpkg.com/react@17.0.0/umd/react.development.js"></script>
     <script src="https://unpkg.com/react-dom@17.0.0/umd/react-dom.development.js"></script>
     <script src="https://unpkg.com/@babel/standalone@7.12.4/babel.js"></script>
-    <script type="text/babel"></script>
+    
+    <script type="text/babel">
+
+    function MeuForm(props) {
+
+    let fNameRef = React.useRef()
+    let lNameRef = React.useRef()
+    let [name, setName] = React.useState('')
+      // Coloque seu código aqui
+      function quandoAlterar(event){
+        const fName = fNameRef.current.value
+        const lName = lNameRef.current.value
+        setName(fName.toUpperCase() + lName.toUpperCase())
+      }
+      
+      return (
+        <form>
+          <div>
+            <label htmlFor="nome">Nome</label>
+            <input id="nome" ref={fNameRef} onChange={quandoAlterar}/>
+          </div>
+          <div>
+            <label htmlFor="sobrenome">Sobrenome</label>
+            <input id="sobrenome" ref={lNameRef} onChange={quandoAlterar}/>
+          </div>
+          <div id="nomeCompleto">{name}</div>         
+        </form>
+      )
+    }
+
+    ReactDOM.render(<MeuForm />, document.getElementById('root'))
+
+  </script>
 </body>
 </html>
